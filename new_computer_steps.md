@@ -41,10 +41,12 @@ nm-connection-editor
 * Go to the `IPv4 Settings`, and set the `DHCP Client id` to `CARBON`. 
 
 The below shows the correct settings: 
+
 ![Wired connection settings](img/wired_01.png)
 
 # Check of "Additional drivers" e.g. for NVIDIA
 Some devices, e.g. the NVIDIA graphics card, might require a proprietary driver, or an alternative driver. The below images shows how one can pick one.
+
 ![](img/additional_drivers_01.png)
 Note some graphics drivers may not be compatible with all software (e.g. MATLAB).
 
