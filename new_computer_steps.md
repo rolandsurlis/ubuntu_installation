@@ -111,7 +111,30 @@ sudo apt install texlive-full
 ./install
 ```
 Do not run the install as administrator. You can create symbolic links later
-
+* 
+* Follow these instructions: 
+https://uk.mathworks.com/matlabcentral/answers/1468426-cannot-enable-hardware-opengl-r2021b-ubuntu-20-04, which state that in your `home` folder (or where ever you run a terminal to execute `matlab`) you should add a file called `jave.opts` and add the following line: 
+```
+-Djogl.disable.openglarbcontext=1
+```
+* Create the symbolic links
+```
+sudo ln -s /home/kevin/matlab/bin/matlab /usr/bin/matlab
+```
+Export path
+```
+export PATH="$PATH:/home/kevin/matlab/bin"
+```
+* Install the MATLAB support package
+```
+sudo apt install matlab-support
+```
+* Rename https://uk.mathworks.com/matlabcentral/answers/241850-matlab-failing-to-find-hardware-opengl
+* Similar to: 
+```
+cd /home/kevin/matlab/sys/os/glnxa64/
+$ sudo mv libstdc++.so.6 libstdc++.so.6.bak
+```
 # Install Carbon black
 * Extract the archive
 * Right click the `install.sh` file, Properties, Permissions, tick Allow Execution as Program 
