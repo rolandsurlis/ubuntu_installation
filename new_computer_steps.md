@@ -50,7 +50,7 @@ Some devices, e.g. the NVIDIA graphics card, might require a proprietary driver,
 ![](img/additional_drivers_01.png)
 Note some graphics drivers may not be compatible with all software (e.g. MATLAB).
 
-# Install usefull SNAP packages
+# Install usefull packages
 * GIMP
 * Inkscape
 * Ghostwriter
@@ -59,6 +59,7 @@ Note some graphics drivers may not be compatible with all software (e.g. MATLAB)
 * Telegram
 * Slack
 * MS Teams
+* Meshlab
 
 # Download + install packages
 ## VS code
