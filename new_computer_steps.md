@@ -140,6 +140,40 @@ conda install texinfo # For the inline documentation (shift-tab) to appear
 sudo apt install texlive-full
 ```
 
+# Configure Git + GitHub SSH
+
+* Follow these instructions to help set-up an SSH key: 
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+E.g.
+```
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+and press Enter to accept the default file location (or alter the file location if desired). Next type a secure passphrase. 
+* To adding your SSH key to the ssh-agent, first start the ssh-agent in the background using
+```
+eval "$(ssh-agent -s)"
+```
+Next add the ssh key using: 
+```
+ssh-add ~/.ssh/id_ed25519
+```
+
+* Follow these instructions to add an SSH key to your GitHub account: 
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
+* https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+* You may need to use the following to avoid what might be firewall issues, e.g.  
+https://stackoverflow.com/questions/15589682/ssh-connect-to-host-github-com-port-22-connection-timed-out, i.e. open a terminal and make the following ssh condiguration steps: 
+```
+sudo nano ~/.ssh/config
+```
+Next add the following lines: 
+```
+Host github.com
+ Hostname ssh.github.com
+ Port 443
+```
+
+
 # Get LibreOffice plugins
 * TexMaths https://extensions.libreoffice.org/en/extensions/show/texmaths-1, download the OXT file, go to LibreOffice Writer, Tools, Extension Manager, Add, then browse to the OXT file. 
 
