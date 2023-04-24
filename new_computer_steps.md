@@ -116,7 +116,9 @@ Do not run the install as administrator. You can create symbolic links later
 * Extract the archive
 * Right click the `install.sh` file, Properties, Permissions, tick Allow Execution as Program 
 * Run the installation using
-`./install.sh`
+```
+sudo ./install.sh
+```
 
 
 # Ubuntu things
