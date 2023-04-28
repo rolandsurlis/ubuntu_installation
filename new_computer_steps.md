@@ -51,97 +51,16 @@ Some devices, e.g. the NVIDIA graphics card, might require a proprietary driver,
 Note some graphics drivers may not be compatible with all software (e.g. MATLAB).
 
 # Install usefull packages
-* GIMP
-* Inkscape
-* Ghostwriter
-* Xournal++
-* Meld
-* Telegram
-* Slack
-* MS Teams
-* Meshlab
-
-# Download + install packages
-## VS code
-* Download .deb file: https://code.visualstudio.com/Download
-* Right click, Properties, Permissions, tick Allow Execution as Program 
-
-## Add Julia
-* Download: https://julialang.org/downloads/, e.g. the latest 64-bit glibc version
-* Extract. 
-* Then browse into the extracted folder to find the folder containing the content like the bin folder etc. Copy/cut all content and move to a local folder where you want Julia to exist e.g. `/home/kevin/julia/`. Not have the version tag in this folder name, so plain `julia` rather than `julia-1.8.5` means the symbolic links can stay constant when you upgrade julia in the future. 
-
-* Setup julia
-
-```
-sudo ln -s /home/kevin/julia/bin/julia /usr/bin/julia
-```
-Export path
-```
-export PATH="$PATH:/home/kevin/julia/bin"
-```
-
-Julia packages to add: 
-* IJulia
-```
-]add IJulia
-```
-* Gridap
-```
-]add Gridap
-```
-* Makie: https://docs.makie.org/stable/
-```
-]add GLMakie
-```
-
-## Git
-* Install
-```
-sudo apt install git
-```
-* Configure git with the correct user name and user email, see also: https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
-* Set user name: 
-```
-git config --global user.name "Kevin-Mattheus-Moerman"
-```
-* Set user email: 
-```
-git config --global user.email kevin.moerman@gmail.com
-```
-
-## GNU Octave
-```
-sudo apt install octave
-```
- 
-## Install Conda
-* Download the installation `.sh` file: https://www.anaconda.com/download/
-* Right click, Properties, Permissions, tick Allow Execution as Program 
-* Open a terminal in that folder run equivalent of:
-```
-./Anaconda3-2023.03-Linux-x86_64.sh
-```
-Conda packages to add: 
-* Jupyter notebooks support
-```
-conda install jupyter
-```
-* RISE https://rise.readthedocs.io/en/stable/installation.html
-```
-conda install -c conda-forge rise
-```
-* Octave kernel https://pypi.org/project/octave-kernel/
-```
-conda config --add channels conda-forge
-conda install octave_kernel
-conda install texinfo # For the inline documentation (shift-tab) to appear
-```
-
-## Tex / LATeX (SLOW/LONG!)
-```
-sudo apt install texlive-full
-```
+* `git` (and a GUI called `git Cola` if you like)
+* `GIMP`
+* `Inkscape`
+* `Ghostwriter`
+* `Xournal++`
+* `Meld`
+* `Telegram`
+* `Slack`
+* `MS Teams`
+* `Meshlab`
 
 # Configure Git + GitHub SSH
 
@@ -161,11 +80,9 @@ Next add the ssh key using:
 ssh-add ~/.ssh/id_ed25519
 ```
 
-* Follow these instructions to add an SSH key to your GitHub account: 
-https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account
-* https://docs.github.com/en/authentication/connecting-to-github-with-ssh
-* You may need to use the following to avoid what might be firewall issues, e.g.  
-https://stackoverflow.com/questions/15589682/ssh-connect-to-host-github-com-port-22-connection-timed-out, i.e. open a terminal and make the following ssh condiguration steps: 
+* Follow [these instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account) to add an SSH key to your GitHub account.
+* Use [these instructions](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) to connect to GitHub with SSH.
+* You may need to use the following to avoid what might be firewall issues, ([see also this link](https://stackoverflow.com/questions/15589682/ssh-connect-to-host-github-com-port-22-connection-timed-out)), i.e. open a terminal and make the following ssh configuration steps: 
 ```
 sudo nano ~/.ssh/config
 ```
@@ -176,6 +93,96 @@ Host github.com
  Port 443
 ```
 
+# Download + install packages
+## VS code
+* Download .deb file: https://code.visualstudio.com/Download
+* Right click, Properties, Permissions, tick Allow Execution as Program 
+
+## Add Julia
+* Download: https://julialang.org/downloads/, e.g. the latest 64-bit glibc version
+* Extract. 
+* Then browse into the extracted folder to find the folder containing the content like the bin folder etc. Copy/cut all content and move to a local folder where you want `julia` to exist e.g. `/home/kevin/julia/`. It is recommended to not have the version tag in this folder name, since using just  `julia` rather than `julia-1.8.5` means the symbolic links can stay constant when you upgrade `julia` in the future. 
+
+* Setup `julia` symbolic links
+
+```
+sudo ln -s /home/kevin/julia/bin/julia /usr/bin/julia
+```
+* Add the `julia` path to `PATH`
+```
+export PATH="$PATH:/home/kevin/julia/bin"
+```
+
+### Julia packages to add: 
+* `IJulia` for jupyter notebook functionality
+```
+]add IJulia
+```
+* `Gridap` for `julia` based finite element analysis
+```
+]add Gridap
+```
+* [`Makie`](https://docs.makie.org/stable/) for advanced visualisation
+```
+]add GLMakie
+```
+
+## Git
+* Install
+```
+sudo apt install git
+```
+* Configure `git` with the correct user name and user email ([see also this link](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup))
+	* Set user name: 
+```
+git config --global user.name "Kevin-Mattheus-Moerman"
+```
+	* Set user email: 
+```
+git config --global user.email kevin.moerman@gmail.com
+```
+
+## Install Conda
+* Download the installation `.sh` file [here](https://www.anaconda.com/download/).
+* Right click, `Properties`, `Permissions`, tick `Allow Execution as Program` 
+* Open a terminal in that folder run equivalent of:
+```
+./Anaconda3-2023.03-Linux-x86_64.sh
+```
+### Conda packages to add: 
+* `Jupyter notebooks` 
+```
+conda install jupyter
+```
+* The [`RISE`](https://rise.readthedocs.io/en/stable/installation.html) `Jupyter` notebook add on, allowing `Jupyter` based presentations. 
+```
+conda install -c conda-forge rise
+```
+* [Octave kernel](https://pypi.org/project/octave-kernel/)
+```
+conda config --add channels conda-forge
+conda install octave_kernel
+conda install texinfo # For the inline documentation (shift-tab) to appear
+```
+
+## GNU Octave
+Octave, an open source AMTLAB alternative (which is easier to set-up for Jupyter notebooks) can be installed as below or via snap or [via conda](https://anaconda.org/conda-forge/octave). 
+```
+sudo apt install octave
+```
+Conda might provide the latest version whereas the above might install a rather old version. 
+ 
+
+## Tex / LATeX (SLOW/LONG!)
+```
+sudo apt install texlive-full
+```
+
+# Grsync
+`grsync` is a GUI for the `rsync` system for backing up/synchronising between two folders. You can install `grsync` using: 
+```
+sudo apt-get -y install grsync
+```
 
 # Get LibreOffice plugins
 * TexMaths https://extensions.libreoffice.org/en/extensions/show/texmaths-1, download the OXT file, go to LibreOffice Writer, Tools, Extension Manager, Add, then browse to the OXT file. 
