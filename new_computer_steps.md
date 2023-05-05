@@ -227,4 +227,21 @@ $ sudo mv libstdc++.so.6 libstdc++.so.6.bak
 touch ~/Templates/newTextFile.txt
 ```
 
+* Minimize on click 
 
+Clicking on icon minimises open window 
+
+```
+sudo apt install dconf-editor
+```
+
+```
+dconf-editor
+```
+Navigate to /org/gnome/shell/extensions/dash-to-dock.
+
+Scroll down to the "click-action" tab
+
+At the bottom of the click-action panel is an option for ‘default value’. Slide this to the off position. Then click the “custom value” button to access a list of options.
+
+Select 'minimize'
