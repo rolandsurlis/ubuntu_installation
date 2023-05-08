@@ -61,6 +61,8 @@ Note some graphics drivers may not be compatible with all software (e.g. MATLAB)
 * `Slack`
 * `MS Teams`
 * `Meshlab`
+* `VLC` media player
+* `Catfish` File Search
 
 # Configure Git + GitHub SSH
 
@@ -178,14 +180,28 @@ Conda might provide the latest version whereas the above might install a rather 
 sudo apt install texlive-full
 ```
 
-# Grsync
+## TexMaker
+```
+sudo apt install texmaker
+```
+
+## Grsync
 `grsync` is a GUI for the `rsync` system for backing up/synchronising between two folders. You can install `grsync` using: 
 ```
 sudo apt-get -y install grsync
 ```
+## Zotero
+Download and setup automated updating, see also instructions on this [GitHub page](https://github.com/retorquere/zotero-deb):
+```
+wget -qO- https://raw.githubusercontent.com/retorquere/zotero-deb/master/install.sh | sudo bash
+sudo apt update
+sudo apt install zotero
+```
+After installation opening Zotero will help you to install the LibreOffice plug-in, as well as the browset (e.g. Firefox) extension.
 
 # Get LibreOffice plugins
 * TexMaths https://extensions.libreoffice.org/en/extensions/show/texmaths-1, download the OXT file, go to LibreOffice Writer, Tools, Extension Manager, Add, then browse to the OXT file. 
+* Zotero, see Zotero section above
 
 # MATLAB
 * Download installer
@@ -198,7 +214,7 @@ sudo apt-get -y install grsync
 Do not run the install as administrator. You can create symbolic links later
 * 
 * Follow these instructions: 
-https://uk.mathworks.com/matlabcentral/answers/1468426-cannot-enable-hardware-opengl-r2021b-ubuntu-20-04, which state that in your `home` folder (or where ever you run a terminal to execute `matlab`) you should add a file called `jave.opts` and add the following line: 
+https://uk.mathworks.com/matlabcentral/answers/1468426-cannot-enable-hardware-opengl-r2021b-ubuntu-20-04, which state that in your `home` folder (or where ever you run a terminal to execute `matlab`) you should add a file called `java.opts` and add the following line: 
 ```
 -Djogl.disable.openglarbcontext=1
 ```
@@ -220,17 +236,48 @@ sudo apt install matlab-support
 cd /home/kevin/matlab/sys/os/glnxa64/
 $ sudo mv libstdc++.so.6 libstdc++.so.6.bak
 ```
+# Jekyll (GitHub based website making)
+https://jekyllrb.com/docs/installation/ubuntu/
+```
+sudo apt-get install ruby-full build-essential zlib1g-dev
+```
 
+```
+echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+Add/install Jekyll:
+```
+gem install jekyll bundler
+```
+You can test the building of a website locally using: 
+```
+bundle exec jekyll serve
+```
+Remove the website / clean up using: 
+```
+bundle exec jekyll clean
+```
+To update ruby gems, go to the website folder where the gemlock file is and use: 
+```
+bundler update
+```
 # Ubuntu things
 * Enable add new empty file on right click e.g. 
 ```
 touch ~/Templates/newTextFile.txt
 ```
+## Tweaks
+For easy custom appearance/behaviour setting changes
+```
+sudo apt install gnome-tweak-tool
+```
 
-* Minimize on click 
+## Minimize on click 
 
 Clicking on icon minimises open window 
-
 ```
 sudo apt install dconf-editor
 ```
@@ -245,3 +292,14 @@ Scroll down to the "click-action" tab
 At the bottom of the click-action panel is an option for ‘default value’. Slide this to the off position. Then click the “custom value” button to access a list of options.
 
 Select 'minimize'
+
+## Add "restricted extras" 
+The restricted extras consists of proprietary fonts and codecs
+```
+sudo apt install ubuntu-restricted-extras
+```
+## Set tray icon click to show preview of application windows for an application
+```
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'previews'
+```
+
