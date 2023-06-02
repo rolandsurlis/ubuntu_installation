@@ -60,9 +60,15 @@ Note some graphics drivers may not be compatible with all software (e.g. MATLAB)
 * `Telegram`
 * `Slack`
 * `MS Teams`
-* `Meshlab`
 * `VLC` media player
 * `Catfish` File Search
+* `PDF Chain`
+* `FreeCAD`
+* `Meshlab`
+* `view3Dscene`
+* `blender`
+* `Shotcut`
+* `Peek`
 
 # Configure Git + GitHub SSH
 
