@@ -79,7 +79,7 @@ E.g.
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 and press Enter to accept the default file location (or alter the file location if desired). Next type a secure passphrase. 
-* To adding your SSH key to the ssh-agent, first start the ssh-agent in the background using
+* To add your SSH key to the ssh-agent, first start the ssh-agent in the background using
 ```
 eval "$(ssh-agent -s)"
 ```
